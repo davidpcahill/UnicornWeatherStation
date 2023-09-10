@@ -17,7 +17,7 @@ UTC_OFFSET = -7 * 3600  # Example for PDT. Adjust as needed.
 BUTTON_PRESS_TIMEOUT = (
     10  # Time in seconds after which the clock will be displayed again
 )
-WEATHER_FETCH_INTERVAL = 60
+WEATHER_FETCH_INTERVAL = 300
 # constants for controlling the background colour throughout the day
 MIDDAY_HUE = 1.1
 MIDNIGHT_HUE = 0.8
@@ -37,7 +37,8 @@ BLACK = graphics.create_pen(0, 0, 0)
 RED = graphics.create_pen(241, 72, 24)
 BLUE = graphics.create_pen(24, 153, 241)
 
-display_clock = True
+current_state = "clock"
+state_start_time = None
 last_button_press_time = None
 last_weather_fetch_time = 0
 
@@ -178,7 +179,9 @@ def get_visibility_color(visibility):
     MIN_GRAY = 50
     max_visibility_m = 10000  # 10km in meters
     gray_value = int(MIN_GRAY + (255 - MIN_GRAY) * (visibility / max_visibility_m))
-    return graphics.create_pen(gray_value, gray_value, gray_value)  # Gray gradient for visibility
+    return graphics.create_pen(
+        gray_value, gray_value, gray_value
+    )  # Gray gradient for visibility
 
 
 def get_clock_color(hour):
@@ -251,9 +254,11 @@ def display_date():
 
 
 def display_weather(button):
+    global current_state, state_start_time
     # Fetch weather data
     weather_data = get_weather_data()
-
+    # Test weather data
+    # weather_data = {'timezone': -18000, 'sys': {'type': 2, 'sunrise': 1694348124, 'country': 'US', 'id': 2035640, 'sunset': 1694393860}, 'base': 'stations', 'main': {'pressure': 1020, 'feels_like': 62.69, 'temp_max': 62.6, 'temp': 62.6, 'temp_min': 62.6, 'humidity': 88, 'sea_level': 1020, 'grnd_level': 944}, 'visibility': 10000, 'id': 5063678, 'clouds': {'all': 100}, 'coord': {'lon': -99.8296, 'lat': 40.1375}, 'rain': {'1h': 20.75, '3h': 15.75}, 'name': 'Beaver City', 'cod': 200, 'weather': [{'id': 500, 'icon': '10d', 'main': 'Rain', 'description': 'light rain'}], 'dt': 1694385881, 'wind': {'gust': 15.08, 'speed': 11.18, 'deg': 24}}
     if not weather_data:
         outline_text("No Data", 11, 2)
         return
@@ -295,44 +300,45 @@ def display_weather(button):
         outline_text(f"{wind_speed}mph", 26, 2, wind_speed_color, BLACK)
         # Displaying wind direction as an arrow or text can be added here
 
-    elif button == "d":
+    else:
+        elapsed_time = time.time() - state_start_time if state_start_time else 0
+        # Additional screens for rain or snow
+        rain = weather_data.get("rain", {})
+        snow = weather_data.get("snow", {})
+
+        if current_state == "d_rain_snow":
+            if elapsed_time >= 5:
+                current_state = "clock"
+                return
+            if rain:
+                rain_1h = rain.get("1h", 0)
+                rain_3h = rain.get("3h", 0)
+                outline_text(f'{rain_1h}"', 2, 2)
+                outline_text(f'{rain_3h}"', 30, 2)
+                return
+            elif snow:
+                snow_1h = snow.get("1h", 0)
+                snow_3h = snow.get("3h", 0)
+                outline_text(f'{snow_1h}"', 2, 2)
+                outline_text(f'{snow_3h}"', 30, 2)
+                return
+
         # Display Cloud coverage % and visibility
         cloud_coverage = weather_data["clouds"]["all"]
         cloud_coverage_color = get_cloud_coverage_color(cloud_coverage)
-
-        # Convert visibility from meters to kilometers
         visibility_m = weather_data.get("visibility", "N/A")
         if visibility_m != "N/A":
             visibility_km = visibility_m / 1000
             visibility_str = f"{visibility_km:.1f}km"
         else:
             visibility_str = "N/A"
-
         visibility_color = get_visibility_color(visibility_m)
-        # display_jpeg("cloud_icon.jpg", 10, 10)
         outline_text(f"{cloud_coverage}%", 2, 2, cloud_coverage_color, BLACK)
         outline_text(visibility_str, 24, 2, visibility_color, BLACK)
 
-        # Additional screens for rain or snow can be added similarly
-        rain = weather_data.get("rain", {})
-        snow = weather_data.get("snow", {})
-
-        if rain:
-            time.sleep(5)
-            # Display 1h and 3h rain amount
-            rain_1h = rain.get("1h", "N/A")
-            rain_3h = rain.get("3h", "N/A")
-            # display_jpeg("rain_icon.jpg", 10, 10)
-            outline_text(f"1h: {rain_1h} mm", 0, 2)
-            outline_text(f"3h: {rain_3h} mm", 25, 2)
-        elif snow:
-            time.sleep(5)
-            # Display 1h and 3h snow amount
-            snow_1h = snow.get("1h", "N/A")
-            snow_3h = snow.get("3h", "N/A")
-            # display_jpeg("snow_icon.jpg", 10, 10)
-            outline_text(f"1h: {snow_1h} mm", 0, 2)
-            outline_text(f"3h: {snow_3h} mm", 25, 2)
+        if elapsed_time >= 5:
+            current_state = "d_rain_snow"
+            state_start_time = time.time()
 
 
 def display_jpeg(filename, x, y):
@@ -396,30 +402,29 @@ button_actions = {
 }
 
 gu.set_brightness(0.5)
-
-current_display = "clock"
-
 sync_time()
 
 while True:
     clear_screen()
 
     for button, action in button_actions.items():
-        if gu.is_pressed(button):
+        if gu.is_pressed(button) and current_state != action:
             print(f"Button {action.upper()} Pressed")
-            current_display = action
+            current_state = action
             last_button_press_time = time.time()
+            current_state = "d_cloud" if action == "d" else action
+            state_start_time = time.time()
 
     if gu.is_pressed(GalacticUnicorn.SWITCH_SLEEP) and current_display != "date":
         print("SLEEP Button Pressed")
         current_display = "date"
         last_button_press_time = time.time()
 
-    if current_display in button_actions.values():
-        display_weather(current_display)
-    elif current_display == "clock":
+    if current_state in ["a", "b", "c", "d_cloud", "d_rain_snow"]:
+        display_weather(current_state)
+    elif current_state == "clock":
         display_time()
-    elif current_display == "date":
+    elif current_state == "date":
         display_date()
 
     if (
