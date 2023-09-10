@@ -47,6 +47,7 @@ An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
 
 - `galactic`: Library for the Pimoroni Galactic Unicorn display.
 - `picographics`: Graphics library for displays.
+- `math` : For math calculations and functions.
 - `network`: For connecting to Wi-Fi.
 - `ntptime`: For syncing time.
 - `urequests`: For making API requests.
