@@ -28,7 +28,7 @@ An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
 4. Update the `WIFI_SSID`, `WIFI_PASSWORD`, and `OPEN_WEATHER_MAP_API_KEY` constants in the main script with your credentials.
 5. Deploy the script and icons to your Pimoroni Galactic Unicorn display.
 6. Power on the display and enjoy your advanced weather clock!
-7. Press buttons A/B/C/D/Zzz to switch between screens
+7. Use the designated buttons to navigate between different weather and time displays.
 
 ## Button Functions
 
