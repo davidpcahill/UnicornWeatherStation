@@ -318,6 +318,7 @@ def display_weather(button):
         snow = weather_data.get("snow", {})
 
         if rain:
+            time.sleep(5)
             # Display 1h and 3h rain amount
             rain_1h = rain.get("1h", "N/A")
             rain_3h = rain.get("3h", "N/A")
@@ -325,6 +326,7 @@ def display_weather(button):
             outline_text(f"1h: {rain_1h} mm", 0, 2)
             outline_text(f"3h: {rain_3h} mm", 25, 2)
         elif snow:
+            time.sleep(5)
             # Display 1h and 3h snow amount
             snow_1h = snow.get("1h", "N/A")
             snow_3h = snow.get("3h", "N/A")
