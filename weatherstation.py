@@ -241,7 +241,7 @@ def display_time():
 def display_date():
     # Fetch current date
     year, month, day, _, _, _, _, _ = time.localtime()
-    date_str = "{:04}-{:02}-{:02}".format(year, month, day)
+    date_str = "{:02}-{:02}-{:04}".format(month, day, year)
 
     # Calculate text position so that it is centered
     w = graphics.measure_text(date_str, 1)
