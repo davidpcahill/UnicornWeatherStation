@@ -14,6 +14,7 @@ COUNTRY_CODE = "US"  # Replace with your country code
 URL = f'http://api.openweathermap.org/data/2.5/weather?q={CITY},{COUNTRY_CODE}&units=imperial&APPID={OPEN_WEATHER_MAP_API_KEY}'
 UTC_OFFSET = -7 * 3600  # Example for PDT. Adjust as needed.
 BUTTON_PRESS_TIMEOUT = 10  # Time in seconds after which the clock will be displayed again
+WEATHER_FETCH_INTERVAL = 60
 
 gu = GalacticUnicorn()
 graphics = PicoGraphics(display=DISPLAY_GALACTIC_UNICORN)
@@ -28,12 +29,6 @@ display_clock = True
 last_button_press_time = None
 weather_data = ""
 last_weather_fetch_time = 0
-WEATHER_FETCH_INTERVAL = 60
-
-button_a_pressed = False
-button_b_pressed = False
-button_c_pressed = False
-button_d_pressed = False
 
 def connect_to_wifi():
     wlan = network.WLAN(network.STA_IF)
