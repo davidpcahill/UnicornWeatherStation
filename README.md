@@ -21,11 +21,12 @@ An advanced weather clock built for the Pimoroni Galactic Unicorn display.
 ## Setup
 
 1. Clone this repository
-2. Navigate to the project directory
-3. Update the `WIFI_SSID`, `WIFI_PASSWORD`, and `OPEN_WEATHER_MAP_API_KEY` constants in the main script with your credentials.
-4. Deploy the script and icons to your Pimoroni Galactic Unicorn display.
-5. Power on the display and enjoy your advanced weather clock!
-6. Press buttons A/B/C/D/Zzz to switch between screens
+2. Grab an API key from https://openweathermap.org
+3. Navigate to the project directory
+4. Update the `WIFI_SSID`, `WIFI_PASSWORD`, and `OPEN_WEATHER_MAP_API_KEY` constants in the main script with your credentials.
+5. Deploy the script and icons to your Pimoroni Galactic Unicorn display.
+6. Power on the display and enjoy your advanced weather clock!
+7. Press buttons A/B/C/D/Zzz to switch between screens
 
 ## Button Functions
 
