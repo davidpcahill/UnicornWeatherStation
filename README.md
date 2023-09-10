@@ -17,7 +17,7 @@ An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
   - Atmospheric pressure in inHg.
   - Cloud coverage percentage.
   - Visibility in meters.
-  - Rain and Snowfall (1 Hour and 3 Hour)
+  - Rain and Snowfall (1 hour and 3 hour)
 - Button controls to toggle between time, date, and various weather metrics.
 - Adjusts display brightness.
 
