@@ -2,7 +2,7 @@
 
 An advanced weather clock built for the Pimoroni Galactic Unicorn display.
 
-![Galactic Unicorn Display]([link-to-image-of-your-clock-if-you-have-one.jpg](https://shop.pimoroni.com/products/space-unicorns?variant=40842033561683))
+![Galactic Unicorn Display]([https://shop.pimoroni.com/cdn/shop/products/galactic-unicorn-1_768x768.jpg?v=1666945186])
 
 ## Features
 
