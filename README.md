@@ -1,6 +1,6 @@
 # Galactic Unicorn Advanced Weather Clock
 
-An advanced weather clock built for the Pimoroni Galactic Unicorn display.
+An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
 
 ![Galactic Unicorn Display](https://shop.pimoroni.com/cdn/shop/products/galactic-unicorn-1_768x768.jpg)
 
