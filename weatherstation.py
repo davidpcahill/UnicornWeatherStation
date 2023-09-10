@@ -69,23 +69,6 @@ def get_weather_data():
     if time.time() - last_weather_fetch_time < WEATHER_FETCH_INTERVAL and weather_data:
         return weather_data
 
-    if connect_to_wifi():
-        for _ in range(3):
-            try:
-                weather_data = requests.get(URL).json()
-                last_weather_fetch_time = time.time()
-                print(weather_data)
-                return weather_data
-            except OSError as e:
-                print("Error fetching weather data:", e)
-                time.sleep(5)
-
-def get_weather_data():
-    global last_weather_fetch_time, weather_data
-
-    if time.time() - last_weather_fetch_time < WEATHER_FETCH_INTERVAL and weather_data:
-        return weather_data
-
     for _ in range(3):
         try:
             sync_time()
