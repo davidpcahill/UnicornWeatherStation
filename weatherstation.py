@@ -23,11 +23,11 @@ width = GalacticUnicorn.WIDTH
 height = GalacticUnicorn.HEIGHT
 WHITE = graphics.create_pen(109, 131, 176)
 BLACK = graphics.create_pen(0, 0, 0)
-RED = graphics.create_pen(255, 0, 0)
-BLUE = graphics.create_pen(0, 0, 255)
+RED = graphics.create_pen(241, 72, 24)
+BLUE = graphics.create_pen(24, 153, 241)
+
 display_clock = True
 last_button_press_time = None
-weather_data = ""
 last_weather_fetch_time = 0
 
 def connect_to_wifi():
