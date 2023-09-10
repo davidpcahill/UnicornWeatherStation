@@ -415,9 +415,9 @@ while True:
             current_state = "d_cloud" if action == "d" else action
             state_start_time = time.time()
 
-    if gu.is_pressed(GalacticUnicorn.SWITCH_SLEEP) and current_display != "date":
+    if gu.is_pressed(GalacticUnicorn.SWITCH_SLEEP) and current_state != "date":
         print("SLEEP Button Pressed")
-        current_display = "date"
+        current_state = "date"
         last_button_press_time = time.time()
 
     if current_state in ["a", "b", "c", "d_cloud", "d_rain_snow"]:
@@ -431,7 +431,7 @@ while True:
         last_button_press_time
         and (time.time() - last_button_press_time) > BUTTON_PRESS_TIMEOUT
     ):
-        current_display = "clock"
+        current_state = "clock"
 
     brightness = gu.get_brightness()
     if gu.is_pressed(GalacticUnicorn.SWITCH_BRIGHTNESS_UP):
