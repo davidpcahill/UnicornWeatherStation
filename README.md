@@ -2,6 +2,8 @@
 
 An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
 
+![WeatherStationExamples](https://github.com/TagWolf/UnicornWeatherStation/assets/8665128/d67fc758-b4a2-4f51-aab5-fa37e5e8c89b)
+
 ![Galactic Unicorn Display](https://shop.pimoroni.com/cdn/shop/products/galactic-unicorn-1_768x768.jpg)
 
 [Get Yours Here!](https://shop.pimoroni.com/products/space-unicorns?variant=40842033561683)
@@ -27,6 +29,7 @@ An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
 2. Grab an API key from https://openweathermap.org
 3. Navigate to the project directory
 4. Update the `WIFI_SSID`, `WIFI_PASSWORD`, and `OPEN_WEATHER_MAP_API_KEY` constants in the main script with your credentials.
+
 5. Deploy the script and icons to your Pimoroni Galactic Unicorn display.
 6. Power on the display and enjoy your advanced weather clock!
 7. Use the designated buttons to navigate between different weather and time displays.
