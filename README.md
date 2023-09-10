@@ -4,6 +4,8 @@ An advanced weather clock built for the Pimoroni Galactic Unicorn display.
 
 ![Galactic Unicorn Display](https://shop.pimoroni.com/cdn/shop/products/galactic-unicorn-1_768x768.jpg)
 
+[Get yours here!](https://shop.pimoroni.com/products/space-unicorns?variant=40842033561683)
+
 ## Features
 
 - Displays current time with a gradient based on the time of day.
