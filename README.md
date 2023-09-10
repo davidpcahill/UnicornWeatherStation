@@ -27,14 +27,17 @@ An advanced weather clock built for the Pimoroni Galactic Unicorn display.
 5. Power on the display and enjoy your advanced weather clock!
 6. Press buttons A/B/C/D/Zzz to switch between screens
 
-## Buttons
+## Button Functions
 
-A = Temperature and Humidity
-B = Low and High Temperatures
-C = Pressure and Wind Speed
-D = Cloud Coverage and Visibility
-Zzz = Date
-Lux -/+ = Change Brightness
+| Button | Function                                  |
+|--------|-------------------------------------------|
+| A      | Temperature and Humidity                 |
+| B      | Low and High Temperatures                |
+| C      | Pressure and Wind Speed                  |
+| D      | Cloud Coverage and Visibility            |
+| Zzz    | Date                                      |
+| Lux -  | Decrease Brightness                      |
+| Lux +  | Increase Brightness                      |
 
 
 ## Dependencies
