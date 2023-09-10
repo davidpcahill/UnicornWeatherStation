@@ -37,7 +37,7 @@ An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
 | A      | Temperature and Humidity                 |
 | B      | Low and High Temperatures                |
 | C      | Pressure and Wind Speed                  |
-| D      | Cloud Coverage and Visibility            |
+| D      | Cloud Coverage and Visibility (Rain/Snow If Present) |
 | Zzz    | Date                                      |
 | Lux -  | Decrease Brightness                      |
 | Lux +  | Increase Brightness                      |
