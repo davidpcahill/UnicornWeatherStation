@@ -115,8 +115,9 @@ def get_pressure_color(pressure):
         return graphics.create_pen(0, 255, 0)  # Bright green for high pressure
 
 def get_cloud_coverage_color(coverage):
-    gray_value = int(255 - coverage * 2.55)
-    return graphics.create_pen(gray_value, gray_value, gray_value)  # Gray gradient for cloud coverage
+    MIN_GRAY = 50
+    gray_value = int(MIN_GRAY + (255 - MIN_GRAY) * (1 - coverage / 100))
+    return graphics.create_pen(gray_value, gray_value, gray_value)  # Adjusted gray gradient for cloud coverage
 
 def get_visibility_color(visibility):
     green_value = int(visibility * 0.0255)  # Assuming max visibility of 10,000 meters for full green
