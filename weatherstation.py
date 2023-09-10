@@ -175,12 +175,10 @@ def get_cloud_coverage_color(coverage):
 
 
 def get_visibility_color(visibility):
-    green_value = int(
-        visibility * 0.0255
-    )  # Assuming max visibility of 10,000 meters for full green
-    return graphics.create_pen(
-        0, green_value, 255 - green_value
-    )  # Blue to green gradient for visibility
+    MIN_GRAY = 50
+    max_visibility_m = 10000  # 10km in meters
+    gray_value = int(MIN_GRAY + (255 - MIN_GRAY) * (visibility / max_visibility_m))
+    return graphics.create_pen(gray_value, gray_value, gray_value)  # Gray gradient for visibility
 
 
 def get_clock_color(hour):
