@@ -284,7 +284,7 @@ def display_weather(button):
         # Display thermometer icons (assuming you have them as jpeg)
         # display_jpeg("cold_thermometer.jpg", 10, 10)
         # display_jpeg("hot_thermometer.jpg", 10, 50)
-        outline_text(f"{temp_min}°F", 7, 2, BLUE, BLACK)
+        outline_text(f"{temp_min}°F", 6, 2, BLUE, BLACK)
         outline_text(f"{temp_max}°F", 30, 2, RED, BLACK)
 
     elif button == "c":
