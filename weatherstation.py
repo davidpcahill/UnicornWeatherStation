@@ -297,7 +297,7 @@ def display_weather(button):
         wind_speed_color = get_wind_speed_color(wind_speed)
         # outline_text(f"{pressure}h", 2, 2, pressure_color, BLACK)
         outline_text(f"{pressure_inHg:.2f}", 2, 2, get_pressure_color(pressure))
-        outline_text(f"{wind_speed}mph", 26, 2, wind_speed_color, BLACK)
+        outline_text(f"{wind_speed}mph", 27, 2, wind_speed_color, BLACK)
         # Displaying wind direction as an arrow or text can be added here
 
     else:
