@@ -8,6 +8,9 @@ An advanced weather clock built for the 53x11 Pimoroni Galactic Unicorn display.
 
 [Get Yours Here!](https://shop.pimoroni.com/products/space-unicorns?variant=40842033561683)
 
+## Plans
+- I will eventually update this so that each screen only contains one piece of labeled information with an icon. You will navigate the different screens with Vol+/-. However until then, the current button mappings are below.
+
 ## Features
 
 - Displays current time with a gradient based on the time of day.
