@@ -67,4 +67,5 @@ Contributions are welcome! Please open an issue or submit a pull request on GitH
 
 ## Acknowledgements
 
-Thanks to Pimoroni for the Galactic Unicorn display and the community for their support and contributions.
+- Thanks to Pimoroni for the Galactic Unicorn display and the community for their support and contributions.
+- Thanks to ChatGPT for writing 98% of this code.
